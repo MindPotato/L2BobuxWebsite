@@ -1,0 +1,373 @@
+/*
+Authour         :     Ivan Koundratas
+Date published  :     June 4th 2021
+*/
+
+
+/*
+Colours
+#01AE07 - Dark green
+#068D0B - Darkest green
+#12D619 - Brigtish green
+#23EB2A - Bright green
+#484848 - Dark gray
+*/
+
+@keyframes loading {
+    /*Custom CSS animation code for when the website is opened or refreshed - gives everything a chance to load in*/
+    0% {
+        /*Brings the div class to cover everything immidiately*/
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        background-position-x: -100%;
+        background-size: 7%;
+    }
+    30% {
+        /*Moves the logo to the center*/
+        background-position: center;
+    }
+    35% {
+        /*Keeps the logo the same size*/
+        background-size: 7%;
+    }
+    40% {
+        /*Makes the logo slightly bigger*/
+        background-size: 9%;
+    }
+    45% {
+        /*Brings the logo back to the original size*/
+        background-size: 7%;
+    }
+    50% {
+        /*Makes sure everything is ready for the final transistion*/
+        height: 100%;
+        background-position: center;
+    }
+    100% {
+        /*Moves everything upwards and reveals everything*/
+        background-size: 7%;
+        height: 0px;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        background-position-y: -8vw;
+        /*Using VW so element is not fixed, but flexible with the endusers screen*/
+    }
+}
+
+::selection {
+    /*When the user highlights something on the website, these colours will be used - purely aesthetic*/
+    color: white;
+    background: #068D0B;
+}
+
+body {
+    /*Changes everything in <body> aka everything seen on the website*/
+    width: inherit;
+    /*Takes the width of the end-users screen width*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*Sets a default font*/
+    color: #484848;
+    /*Sets a default font colour*/
+    background-color: #FFFFFF;
+    /*Sets a default background colour*/
+}
+
+.animation {
+    /*First animation block thats gray with the logo*/
+    float: right;
+    /*Keeps it to right*/
+    margin: auto;
+    /*Keeps it centered*/
+    position: fixed;
+    /*Posistion is fixed, so it always appears in one place if the user scrolls. Also accepts relative coordinates*/
+    animation: loading 4s;
+    /*Links to @keyframes loading and follows them over 4 seconds*/
+    height: 0vw;
+    /*Makes the height 0 so it appears invisible*/
+    top: -999999px;
+    /*Just incase it's visible, move it up a ridiculous amount*/
+    width: 0vw;
+    /*Get rid of the width for the same effect as height*/
+    z-index: 10;
+    /*Bring it to the very front in 3d space - makes sure nothing underneath is visble ontop of the animation*/
+    background-color: #cfcfcf;
+    /*Setting the gray colour*/
+    background-image: url(/rawimages/bobuxlogo.svg);
+    /*Sourcing the logo*/
+    background-position: center;
+    /*Make sure the logo is always in the center*/
+    background-repeat: no-repeat;
+    /*Make sure the logo only appears once and doesn't tile*/
+    background-size: 7%;
+    /*Sets the logo size*/
+}
+
+.animation2 {
+    /*Seconds animation block thats green*/
+    float: right;
+    margin: auto;
+    position: fixed;
+    animation: loading 4s;
+    animation-delay: 0.1s;
+    /*Delays the animation so it appears like its following the first animation*/
+    height: 0vw;
+    top: -999999px;
+    width: 0vw;
+    z-index: 9;
+    background-color: #068D0B;
+}
+
+.navbars {
+    /*Properties for which all the navigation buttons are placed inside of*/
+    margin: 40px 112px;
+    /*Makes sure all surronding elements are 40px away (sideways) and 112px (vertically) - also keeps everything inside from overflowing*/
+    transition: ease-in-out 300ms;
+}
+
+.active {
+    /*Adjusts navigation button whether it's on that page or not*/
+    font-weight: bold;
+    /*Makes the text bold*/
+}
+
+.nav-logo {
+    /*Properties for the nav logo*/
+    display: inline-block;
+    /*Makes it possbile for HTML attributes to be side by side*/
+    margin: auto 30px auto auto;
+    /*Makes sure anything to the right is pushed 30px*/
+    background-image: url(/rawimages/bobuxtext.svg);
+    /*Easy method to get images in a navbar without using <img> and have it be clickable*/
+    background-size: contain;
+    /*The background image will fill the space*/
+    background-repeat: no-repeat;
+    width: 202px;
+    height: 60px;
+    transition: ease-in-out 300ms;
+}
+
+.nav-button {
+    /*Properties for all the buttons in the navbar - EXCEPT SIGNUP*/
+    color: #484848;
+    /*Reseting the colour as href="" gives it a 'link' colour*/
+    font-size: 20px;
+    /*Setting a fixed font size*/
+    text-align: center;
+    /*Put the text in the center*/
+    display: inline-block;
+    margin: auto 31px;
+    /*Keep everything on either side 31px away*/
+    position: relative;
+    /*The posistion can be moved relative to where it's placed in HTML*/
+    top: -21px;
+    /*Move the button 21px upward relative to where it originally was*/
+    transition: ease-in-out 300ms;
+    /*Add a transistion for whenever the button transforms*/
+    text-decoration: none;
+    /*Gets rid of the underline given by href=""*/
+}
+
+.nav-button::after {
+    /*Properties for the underline appearing when a nav-button is hovered*/
+    content: "";
+    /*Making sure theres no text in the block*/
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: transparent;
+    /*Making the background transparent so it "fades in"*/
+    width: 0;
+    transition: ease-in-out 300ms;
+}
+
+.nav-button:hover {
+    /*When a nav-button is hovered, adjust the text colour (implemented because of bootstrap)*/
+    color: #484848;
+}
+
+.nav-button:hover::after {
+    /*When a nav-button is hovered, adjust the nav-bt::after*/
+    width: 100%;
+    /*Makes the width 100% of the nav-bt*/
+    background-color: #484848;
+    /*Changes the colour making it appear*/
+}
+
+.nav-signup {
+    /*Properties for the sign-up button on the right*/
+    color: #484848;
+    font-size: 25px;
+    text-align: center;
+    margin: auto;
+    padding: 3px 35px;
+    /*Changes the size of the box the text is placed in, adds 3px vertically and 35px sidways.*/
+    position: relative;
+    top: 10px;
+    float: right;
+    /*Keeps the button on the right*/
+    transition: ease-in-out 300ms;
+    text-decoration: none;
+    border-radius: 20px;
+    /*Gives it the curved border*/
+    border: #01AE07 2px solid;
+    /*Give it a green solid border 2px thick*/
+    background-color: white;
+}
+
+.nav-signup:hover {
+    /*When the signup button is hovered*/
+    color: #FFFFFF;
+    /*Change font color*/
+    background-image: linear-gradient(45deg, #12D619, #23EB2A);
+    /*Gives it a gradient background on hover*/
+    border: white 2px solid;
+    /*Gets rid of the border*/
+}
+
+
+/*CSS to customise the provided dropdown menu*/
+
+.dropdown {
+    margin: auto;
+    position: relative;
+    top: -9999px;
+    float: right;
+    width: 10px;
+    padding: 0%;
+}
+
+@media only screen and (max-width: 800px) {
+    [class*="dropdown"] {
+        top: 20px;
+    }
+}
+
+.btn-secondary {
+    background-color: #01AE07;
+}
+
+.dropdown-menu {
+    width: 10px;
+}
+
+
+/*End of bootstrap specific CSS*/
+
+@media only screen and (max-width: 1200px) {
+    [class*="nav-logo"] {
+        background-image: url(/rawimages/bobuxlogo.svg);
+        width: 60px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    [class*="navbars"] {
+        margin: 40px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    [class*="navbars"] {
+        margin: 0px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    [class*="nav-button"] {
+        color: transparent;
+        top: -9999px;
+        margin: 0%;
+        font-size: 0%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    [class*="nav-signup"] {
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    [class*="nav-signup"] {
+        color: transparent;
+        border: 0px transparent solid;
+        top: -9999px;
+        margin: 0%;
+        font-size: 0%;
+    }
+}
+
+.heroimage {
+    /*Properties for the hero image. Percentage and VW is used to make sure it adapts well with smaller/larger screen - no time to do proper JS.*/
+    margin: 7% auto auto auto;
+    /*You could read this as, margin: Top Right Bottom Left or North East South West*/
+    width: inherit;
+    /*Inherits the width from the parent (takes the width from body)*/
+    height: 75%;
+    border-bottom: #01AE07 solid 4px;
+    background-image: url(/rawimages/graph2.svg);
+    background-size: 120%;
+    background-position: right;
+    /*Keeps the background to the right*/
+    background-repeat: no-repeat;
+}
+
+.herotext {
+    /*Properties for the text container*/
+    margin: auto auto auto 6%;
+    width: 52%;
+    /*Width is 52% of heroimage*/
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.7);
+    /*A subtle gradient to help with readability in some places*/
+}
+
+.heroheader {
+    /*Proerties for the main header*/
+    color: #01AE07;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.subheading {
+    /*Properties for the text under the main header*/
+    color: #484848;
+    font-size: 1.6vw;
+    margin: 10% 0% 0% 0%;
+    /*auto is replaced with 0% so the element doesn't center itself*/
+    width: 82%;
+    /*Width is 82% of herotext*/
+}
+
+.flex-container-home {
+    width: 70%;
+    margin: 2% auto;
+}
+
+@media only screen and (max-width: 790px) {
+    [class*="heroheader"] {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    [class*="heroheader"] {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    [class*="subheading"] {
+        font-size: 0px;
+        width: 0px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    [class*="herotext"] {
+        width: 100%;
+    }
+}
