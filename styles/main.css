@@ -227,34 +227,53 @@ body {
     /*Gets rid of the border*/
 }
 
-
-/*CSS to customise the provided dropdown menu*/
-
 .dropdown {
-    margin: auto;
-    position: relative;
-    top: -9999px;
-    float: right;
-    width: 10px;
-    padding: 0%;
+    overflow: hidden;
+    display: inline-block;
 }
 
-@media only screen and (max-width: 800px) {
-    [class*="dropdown"] {
-        top: 20px;
-    }
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #484848;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
 }
 
-.btn-secondary {
-    background-color: #01AE07;
+.navbar a:hover,
+.dropdown:hover .dropbtn,
+.dropbtn:focus {
+    text-shadow: #484848;
 }
 
-.dropdown-menu {
-    width: 10px;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #484848;
+    min-width: 160px;
+    z-index: 1;
 }
 
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
 
-/*End of bootstrap specific CSS*/
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
 
 @media only screen and (max-width: 1200px) {
     [class*="nav-logo"] {
