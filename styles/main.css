@@ -95,7 +95,7 @@ body {
     /*Bring it to the very front in 3d space - makes sure nothing underneath is visble ontop of the animation*/
     background-color: #cfcfcf;
     /*Setting the gray colour*/
-    background-image: url(/rawimages/bobuxlogo.svg);
+    background-image: url(https://media.discordapp.net/attachments/477770607195586565/799842774933045278/image8.gif);
     /*Sourcing the logo*/
     background-position: center;
     /*Make sure the logo is always in the center*/
@@ -230,41 +230,54 @@ body {
 .dropdown {
     overflow: hidden;
     display: inline-block;
+    transition: ease-in-out 300ms;
+    position: relative;
+    top: -9999px;
 }
 
 .dropdown .dropbtn {
+    position: relative;
+    top: 0px;
     cursor: pointer;
     font-size: 16px;
-    border: none;
-    outline: none;
     color: #484848;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
+    transition: ease-in-out 300ms;
+}
+
+@media only screen and (max-width: 800px) {
+    [class*="dropdown"] {
+        top: -10px;
+        position: unset;
+    }
 }
 
 .navbar a:hover,
 .dropdown:hover .dropbtn,
 .dropbtn:focus {
-    text-shadow: #484848;
+    text-shadow: #484848 10px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #484848;
-    min-width: 160px;
+    background-color: white;
     z-index: 1;
+    transition: ease-in-out 300ms;
+    border: 1px solid #068D0B;
 }
 
 .dropdown-content a {
     float: none;
-    color: black;
+    color: #484848;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
+    transition: ease-in-out 300ms;
 }
 
 .dropdown-content a:hover {
@@ -277,7 +290,7 @@ body {
 
 @media only screen and (max-width: 1200px) {
     [class*="nav-logo"] {
-        background-image: url(/rawimages/bobuxlogo.svg);
+        background-image: url(https://media.discordapp.net/attachments/477770607195586565/799842774933045278/image8.gif);
         width: 60px;
     }
 }
