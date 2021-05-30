@@ -4,40 +4,50 @@
     <meta charset="UTF-8">
     <meta name="description" content="BoBux, an easy way to learn video game currency">
     <meta name="keywords" content="bobux, free, mining, money, points">
-    <meta name="authour" content="Ivan Koundratas">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ivan Koundratas!!">
     <!--Get the end-users device width-->
-
-    <link rel="stylesheet" href="/styles/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Link to css-->
-    <link rel="icon" type="image/svg" href="/rawimages/bobuxlogo.svg">
+    <link rel="stylesheet" href="/styles/main.css">
+    <!--Awesome fonts link-->
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <!--Change the icon of the website-->
-    <title>BoBux</title>
+    <link rel="icon" type="image/svg" href="/rawimages/bobuxlogo.svg">
     <!--Change the title of the website-->
+    <title>BoBux | Profile</title>
 </head>
 
-<body>
+<body id="body">
     <div class="animation2"></div>
     <!--The dark green bit of the loading animation-->
     <div class="animation"></div>
     <!--The gray bit with the logo-->
-    <div class="navbar">
+    <div class="navbars">
         <!--Container-->
-        <a class="nav-logo" href="index.html"></a>
+        <a class="nav-logo" onclick="drop()"><i class="fa fa-bars"></i></a>
         <!--Logo on the navbar handled in CSS-->
-        <a class="nav-bt" href="index.html">Home</a>
+        <a class="nav-button" href="index.html">Home</a>
         <!--Button to send the user to the home page-->
-        <a class="nav-bt" href="points.html">Points</a>
+        <a class="nav-button" href="points.html">Points</a>
         <!--Sends the user to points-->
-        <a class="nav-bt active" href="#">Profile</a>
+        <a class="nav-button active" href="#">Profile</a>
         <!--Sends the user to profile-->
         <a class="nav-signup" href="signup.html">Sign up!</a>
         <!--Sends the user to signup-->
+        <!--Dropdown that appears on mobile-->
+        <div class="dropdown">
+            <div class="dropdown-content" id="dropdownJS">
+                <a href="index.html">Home</a>
+                <a href="points.html">Points</a>
+                <a class="active" onclick="drop()">Profile</a>
+            </div>
+        </div>
     </div>
     <!--End of container-->
     <div class="heroheader" style="margin: auto; text-align: center;">
         Coming Soon!
     </div>
+    <script src="/scripts/navbarDropDown.js"></script>
 </body>
 
 </html>

@@ -17,14 +17,14 @@
     <title>BoBux</title>
 </head>
 
-<body>
+<body id="body">
     <div class="animation2"></div>
     <!--The dark green bit of the loading animation-->
     <div class="animation"></div>
     <!--The gray bit with the logo-->
     <div class="navbars">
         <!--Container-->
-        <a class="nav-logo" href="#"></a>
+        <a class="nav-logo" onclick="drop()"><i class="fa fa-bars"></i></a>
         <!--Logo on the navbar handled in CSS-->
         <a class="nav-button active" href="#">Home</a>
         <!--Button to send the user to the home page-->
@@ -36,30 +36,48 @@
         <!--Sends the user to signup-->
         <!--Dropdown that appears on mobile-->
         <div class="dropdown">
-            <div class="dropbtn" onclick="drop()">
-                <i class="fas fa-bars"></i>
-            </div>
             <div class="dropdown-content" id="dropdownJS">
-                <a href="#">Home</a>
-                <a href="#">Points</a>
-                <a href="#">Profile</a>
-                <a href="#">Sign up!</a>
+                <a class="active" onclick="drop()">Home</a>
+                <a href="points.html">Points</a>
+                <a href="profile.html">Profile</a>
             </div>
         </div>
     </div>
     <!--End of container-->
-
-
     <div class="heroimage">
-        <div class="herotext">
-            <div class="heroheader">
-                Earn points and<br>get rewards!
+        <div class="homehero">
+            <div class="header">
+                Earn points and get rewards!
             </div>
             <div class="subheading">
                 BoBux provides a fast, secure and free way to trade points for various video game gift cards!
             </div>
         </div>
     </div>
+
+    <div class="homecontent">
+        <div class="header">
+            How does it <span>work</span>?
+        </div>
+        <div class = "row">
+            <div class = "column">
+                <div class="pickaxe" title="Pickaxe and survey"></div>
+                <h1>Complete survey's/mine and earn points</h1>
+                <a>You can either use your hardware to mine an optimised coin based off your hardware, or complete various surveys to earn points!</a>
+            </div>
+            <div class = "column">
+                <div class="coin" title="Coin"></div>
+                <h1>Exchange points to video game currencies</h1>
+                <a>Once you've reached your desired among of points, your able to spend them on whatever giftcard or video game currency you want!</a>
+            </div>
+            <div class = "column">
+                <div class="bag" title="Bag"></div>
+                <h1>Get rewarded instantly</h1>
+                <a>Rewards are given instantly, so there's no long wait for your hard earned rewards.</a>
+            </div>
+        </div>
+    </div>
+
 
     <script src="/scripts/navbarDropDown.js"></script>
 </body>

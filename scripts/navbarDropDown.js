@@ -1,13 +1,14 @@
 function drop() {
-    document.getElementById("dropdownJS").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-    if (!e.target.matches('.dropbtn')) {
-        var myDropdown = document.getElementById("dropdownJS");
-        if (myDropdown.classList.contains('show')) {
-            myDropdown.classList.remove('show');
-        }
+    var x = document.getElementById("dropdownJS");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+    var y = document.getElementById("body");
+    if (y.style.overflow === "hidden") {
+        y.style.overflow = "unset";
+    } else {
+        y.style.overflow = "hidden";
     }
 }

@@ -21,39 +21,21 @@ Colours
         height: 100%;
         left: 0px;
         top: 0px;
-        background-position-x: -100%;
-        background-size: 7%;
     }
-    30% {
-        /*Moves the logo to the center*/
-        background-position: center;
-    }
-    35% {
-        /*Keeps the logo the same size*/
-        background-size: 7%;
-    }
-    40% {
-        /*Makes the logo slightly bigger*/
-        background-size: 9%;
-    }
-    45% {
-        /*Brings the logo back to the original size*/
-        background-size: 7%;
-    }
-    50% {
-        /*Makes sure everything is ready for the final transistion*/
+    25% {
+        /*Allows some time to pass*/
+        width: 100%;
         height: 100%;
-        background-position: center;
+        left: 0px;
+        top: 0px;
     }
     100% {
         /*Moves everything upwards and reveals everything*/
-        background-size: 7%;
         height: 0px;
         left: 0px;
         top: 0px;
         width: 100%;
-        background-position-y: -8vw;
-        /*Using VW so element is not fixed, but flexible with the endusers screen*/
+        /*Using % so element is not fixed, but flexible with the endusers screen*/
     }
 }
 
@@ -75,7 +57,8 @@ body {
     /*Sets a default background colour*/
 }
 
-.animation {
+.animation,
+.animation2 {
     /*First animation block thats gray with the logo*/
     float: right;
     /*Keeps it to right*/
@@ -83,7 +66,7 @@ body {
     /*Keeps it centered*/
     position: fixed;
     /*Posistion is fixed, so it always appears in one place if the user scrolls. Also accepts relative coordinates*/
-    animation: loading 4s;
+    animation: loading cubic-bezier(.52, .02, .52, .99) 1.25s;
     /*Links to @keyframes loading and follows them over 4 seconds*/
     height: 0vw;
     /*Makes the height 0 so it appears invisible*/
@@ -95,28 +78,10 @@ body {
     /*Bring it to the very front in 3d space - makes sure nothing underneath is visble ontop of the animation*/
     background-color: #cfcfcf;
     /*Setting the gray colour*/
-    background-image: url(https://media.discordapp.net/attachments/477770607195586565/799842774933045278/image8.gif);
-    /*Sourcing the logo*/
-    background-position: center;
-    /*Make sure the logo is always in the center*/
-    background-repeat: no-repeat;
-    /*Make sure the logo only appears once and doesn't tile*/
-    background-size: 7%;
-    /*Sets the logo size*/
 }
 
 .animation2 {
-    /*Seconds animation block thats green*/
-    float: right;
-    margin: auto;
-    position: fixed;
-    animation: loading 4s;
     animation-delay: 0.1s;
-    /*Delays the animation so it appears like its following the first animation*/
-    height: 0vw;
-    top: -999999px;
-    width: 0vw;
-    z-index: 9;
     background-color: #068D0B;
 }
 
@@ -147,6 +112,12 @@ body {
     width: 202px;
     height: 60px;
     transition: ease-in-out 300ms;
+}
+
+.nav-logo i {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
 }
 
 .nav-button {
@@ -217,7 +188,8 @@ body {
     background-color: white;
 }
 
-.nav-signup:hover {
+.nav-signup:hover,
+.nav-signup:active {
     /*When the signup button is hovered*/
     color: #FFFFFF;
     /*Change font color*/
@@ -228,55 +200,38 @@ body {
 }
 
 .dropdown {
+    width: fit-content;
     overflow: hidden;
-    display: inline-block;
     transition: ease-in-out 300ms;
     position: relative;
     top: -9999px;
 }
 
-.dropdown .dropbtn {
-    position: relative;
-    top: 0px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #484848;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-    transition: ease-in-out 300ms;
-}
-
 @media only screen and (max-width: 800px) {
     [class*="dropdown"] {
-        top: -10px;
         position: unset;
+        top: 0px;
     }
-}
-
-.navbar a:hover,
-.dropdown:hover .dropbtn,
-.dropbtn:focus {
-    text-shadow: #484848 10px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
-    z-index: 1;
     transition: ease-in-out 300ms;
-    border: 1px solid #068D0B;
+    width: 100%;
+    top: 72px;
+    left: 0;
+    height: 100%;
 }
 
 .dropdown-content a {
-    float: none;
+    font-size: 20px;
     color: #484848;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    text-align: left;
+    text-align: center;
     transition: ease-in-out 300ms;
 }
 
@@ -284,31 +239,35 @@ body {
     background-color: #ddd;
 }
 
-.show {
-    display: block;
-}
-
 @media only screen and (max-width: 1200px) {
-    [class*="nav-logo"] {
+    .nav-logo {
         background-image: url(https://media.discordapp.net/attachments/477770607195586565/799842774933045278/image8.gif);
         width: 60px;
     }
 }
 
 @media only screen and (max-width: 1200px) {
-    [class*="navbars"] {
+    .nav-logo i {
+        position: relative;
+        top: 36%;
+        left: 100%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbars {
         margin: 40px;
     }
 }
 
 @media only screen and (max-width: 1000px) {
-    [class*="navbars"] {
+    .navbars {
         margin: 0px;
     }
 }
 
 @media only screen and (max-width: 800px) {
-    [class*="nav-button"] {
+    .nav-button {
         color: transparent;
         top: -9999px;
         margin: 0%;
@@ -317,18 +276,10 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
-    [class*="nav-signup"] {
-        margin-right: 10px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    [class*="nav-signup"] {
-        color: transparent;
-        border: 0px transparent solid;
-        top: -9999px;
-        margin: 0%;
-        font-size: 0%;
+    .nav-signup {
+        position: relative;
+        top: 12px;
+        font-size: 20px;
     }
 }
 
@@ -347,7 +298,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.herotext {
+.homehero {
     /*Properties for the text container*/
     margin: auto auto auto 6%;
     width: 52%;
@@ -357,10 +308,13 @@ body {
     /*A subtle gradient to help with readability in some places*/
 }
 
-.heroheader {
+.homehero .header {
     /*Proerties for the main header*/
     color: #01AE07;
     font-size: 100px;
+}
+
+.header {
     font-weight: bold;
 }
 
@@ -379,27 +333,101 @@ body {
     margin: 2% auto;
 }
 
-@media only screen and (max-width: 790px) {
-    [class*="heroheader"] {
-        font-size: 40px;
-    }
-}
-
 @media only screen and (max-width: 1200px) {
-    [class*="heroheader"] {
+    .homehero .header {
         font-size: 60px;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    [class*="subheading"] {
-        font-size: 0px;
-        width: 0px;
+    .subheading {
+        font-size: 20px;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    [class*="herotext"] {
-        width: 100%;
+    .homehero {
+        width: 80%;
     }
+}
+
+@media only screen and (max-width: 768px) {
+    .heroimage {
+        height: fit-content;
+        padding-bottom: 20px;
+    }
+}
+
+.homecontent {
+    padding-top: 5%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), #01ae0727);
+}
+
+.homecontent .header {
+    font-size: 50px;
+    text-align: center;
+}
+
+.homecontent .header span {
+    color: #01AE07;
+}
+
+.row {
+    display: flex;
+}
+
+@media only screen and (max-width: 1000px) {
+    .row {
+        display: table;
+    }
+}
+
+.row:after {
+    display: table;
+    clear: both;
+}
+
+.column {
+    width: 24.3%;
+    margin: 4.2vw;
+    text-align: center;
+    height: fit-content;
+}
+
+@media only screen and (max-width: 1000px) {
+    .column {
+        margin: 5% auto;
+        width: 90%;
+    }
+}
+
+.column h1 {
+    font-weight: normal;
+    color: #6DD571;
+    font-size: 12pt;
+}
+
+.column a {
+    font-size: 15pt;
+}
+
+.pickaxe,
+.coin,
+.bag {
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pickaxe {
+    background-image: url(/rawimages/pickaxeorsurvey.svg);
+}
+
+.coin {
+    background-image: url(/rawimages/coin.svg);
+}
+
+.bag {
+    background-image: url(/rawimages/MONEYBAH.svg);
 }
