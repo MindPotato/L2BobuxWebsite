@@ -45,6 +45,29 @@ Colours
     background: #068D0B;
 }
 
+::-webkit-scrollbar {
+    /*Changes how the scrollbar looks*/
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #cfcfcf;
+    box-shadow: inset 0 0 5px grey;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #999;
+    box-shadow: inset 0 0 5px grey;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #01AE07;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #068D0B;
+}
+
 body {
     /*Changes everything in <body> aka everything seen on the website*/
     width: inherit;
@@ -74,7 +97,7 @@ body {
     /*Just incase it's visible, move it up a ridiculous amount*/
     width: 0vw;
     /*Get rid of the width for the same effect as height*/
-    z-index: 10;
+    z-index: 9999;
     /*Bring it to the very front in 3d space - makes sure nothing underneath is visble ontop of the animation*/
     background-color: #cfcfcf;
     /*Setting the gray colour*/
@@ -112,12 +135,7 @@ body {
     width: 202px;
     height: 60px;
     transition: ease-in-out 300ms;
-}
-
-.nav-logo i {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+    z-index: 10;
 }
 
 .nav-button {
@@ -186,6 +204,7 @@ body {
     border: #01AE07 2px solid;
     /*Give it a green solid border 2px thick*/
     background-color: white;
+    z-index: 10;
 }
 
 .nav-signup:hover,
@@ -199,60 +218,152 @@ body {
     /*Gets rid of the border*/
 }
 
-.dropdown {
+#dd {
+    position: absolute;
+    display: unset;
     width: fit-content;
     overflow: hidden;
-    transition: ease-in-out 300ms;
-    position: relative;
-    top: -9999px;
+    position: unset;
 }
 
-@media only screen and (max-width: 800px) {
-    [class*="dropdown"] {
-        position: unset;
-        top: 0px;
-    }
-}
-
-.dropdown-content {
-    display: none;
+#ddcontent {
+    visibility: hidden;
     position: absolute;
-    background-color: white;
-    transition: ease-in-out 300ms;
+    background-image: linear-gradient(135deg, #01AE07, #068D0B);
+    transition: ease-in-out .3s;
     width: 100%;
-    top: 72px;
-    left: 0;
+    left: 0%;
+    top: 0;
+    opacity: 0;
     height: 100%;
+    overflow: hidden;
+    z-index: 2;
 }
 
-.dropdown-content a {
+.mobile #ddcontent {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile #icon span {
+    background: white;
+}
+
+.mobile .nav-signup {
+    border: white 2px solid;
+    background-color: transparent;
+    color: white;
+}
+
+.mobile .nav-signup:hover,
+.mobile .nav-signup:active {
+    border: #01AE07 2px solid;
+}
+
+.mobile .nav-logo {
+    background-image: url(/rawimages/bobuxlogo-whiteflat.svg);
+    position: relative;
+}
+
+#ddcontent a {
     font-size: 20px;
-    color: #484848;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
     text-align: center;
+    transition: ease-in-out .3s;
+    position: relative;
+    top: 73px;
+    display: table;
+    margin: 10% auto;
+}
+
+#ddcontent a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: transparent;
+    width: 0;
     transition: ease-in-out 300ms;
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
+#ddcontent a:hover::after,
+#ddcontent a:active::after {
+    width: 100%;
+    background-color: #FFF;
 }
 
 @media only screen and (max-width: 1200px) {
     .nav-logo {
-        background-image: url(https://media.discordapp.net/attachments/477770607195586565/799842774933045278/image8.gif);
+        background-image: url(/rawimages/bobuxlogo.svg);
         width: 60px;
     }
 }
 
-@media only screen and (max-width: 1200px) {
-    .nav-logo i {
+
+/*Burger menu CSS for mobile, takes up a lot of space because of all the animation*/
+
+#icon {
+    z-index: 10;
+    display: none;
+    width: 18px;
+    height: 16px;
+    transform: rotate(0deg);
+    transition: 300ms cubic-bezier(.97, 0, .89, .97);
+    cursor: pointer;
+}
+
+#icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #484848;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 300ms cubic-bezier(.97, 0, .89, .97);
+}
+
+#icon span:nth-child(1) {
+    top: 0px;
+}
+
+#icon span:nth-child(2),
+#icon span:nth-child(3) {
+    top: 6px;
+}
+
+#icon span:nth-child(4) {
+    top: 12px;
+}
+
+#icon.open span:nth-child(1),
+#icon.open span:nth-child(4) {
+    opacity: 0;
+}
+
+#icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+#icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 800px) {
+    #icon {
         position: relative;
-        top: 36%;
-        left: 100%;
+        display: inline-block;
+        bottom: 18px;
+        right: 20px;
     }
 }
+
+
+/*End of burger*/
 
 @media only screen and (max-width: 1200px) {
     .navbars {
@@ -269,7 +380,7 @@ body {
 @media only screen and (max-width: 800px) {
     .nav-button {
         color: transparent;
-        top: -9999px;
+        display: non;
         margin: 0%;
         font-size: 0%;
     }
@@ -289,11 +400,11 @@ body {
     /*You could read this as, margin: Top Right Bottom Left or North East South West*/
     width: inherit;
     /*Inherits the width from the parent (takes the width from body)*/
-    height: 75%;
+    height: 71%;
     border-bottom: #01AE07 solid 4px;
     background-image: url(/rawimages/graph2.svg);
-    background-size: 120%;
-    background-position: right;
+    background-size: 1800px;
+    background-position: bottom right;
     /*Keeps the background to the right*/
     background-repeat: no-repeat;
 }
@@ -318,6 +429,10 @@ body {
     font-weight: bold;
 }
 
+.header span {
+    color: #01AE07;
+}
+
 .subheading {
     /*Properties for the text under the main header*/
     color: #484848;
@@ -339,37 +454,36 @@ body {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
     .subheading {
         font-size: 20px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
     .homehero {
         width: 80%;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
     .heroimage {
         height: fit-content;
         padding-bottom: 20px;
+        background-size: 1500px;
+        background-position: bottom right;
     }
 }
 
 .homecontent {
-    padding-top: 5%;
+    overflow: hidden;
+    padding-top: 4%;
     background-image: linear-gradient(rgba(0, 0, 0, 0), #01ae0727);
 }
 
 .homecontent .header {
     font-size: 50px;
     text-align: center;
-}
-
-.homecontent .header span {
-    color: #01AE07;
 }
 
 .row {
@@ -389,15 +503,24 @@ body {
 
 .column {
     width: 24.3%;
-    margin: 4.2vw;
+    margin: 2.1vw;
+    padding: 2.1vw;
     text-align: center;
     height: fit-content;
+    transition: 300ms ease-in-out;
+    height: 440px;
+}
+
+.column:hover {
+    background-color: #f5fff5;
+    box-shadow: #48484850 0 0 20px;
 }
 
 @media only screen and (max-width: 1000px) {
     .column {
-        margin: 5% auto;
+        margin: 2.1vw auto;
         width: 90%;
+        height: 450px;
     }
 }
 

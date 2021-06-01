@@ -22,9 +22,16 @@
     <!--The dark green bit of the loading animation-->
     <div class="animation"></div>
     <!--The gray bit with the logo-->
-    <div class="navbars">
+    <div class="navbars" id="nav">
         <!--Container-->
-        <a class="nav-logo" onclick="drop()"><i class="fa fa-bars"></i></a>
+        <a class="nav-logo" href="#"></a>
+        <a id="icon" onclick="drop()">
+            <!--Dropdown burger, all spans required for animation-->
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
         <!--Logo on the navbar handled in CSS-->
         <a class="nav-button active" href="#">Home</a>
         <!--Button to send the user to the home page-->
@@ -35,8 +42,8 @@
         <a class="nav-signup" href="signup.html">Sign up!</a>
         <!--Sends the user to signup-->
         <!--Dropdown that appears on mobile-->
-        <div class="dropdown">
-            <div class="dropdown-content" id="dropdownJS">
+        <div id="dd">
+            <div id="ddcontent">
                 <a class="active" onclick="drop()">Home</a>
                 <a href="points.html">Points</a>
                 <a href="profile.html">Profile</a>
@@ -59,19 +66,19 @@
         <div class="header">
             How does it <span>work</span>?
         </div>
-        <div class = "row">
-            <div class = "column">
-                <div class="pickaxe" title="Pickaxe and survey"></div>
+        <div class="row">
+            <div class="column">
+                <div class="pickaxe"></div>
                 <h1>Complete survey's/mine and earn points</h1>
                 <a>You can either use your hardware to mine an optimised coin based off your hardware, or complete various surveys to earn points!</a>
             </div>
-            <div class = "column">
-                <div class="coin" title="Coin"></div>
+            <div class="column">
+                <div class="coin"></div>
                 <h1>Exchange points to video game currencies</h1>
                 <a>Once you've reached your desired among of points, your able to spend them on whatever giftcard or video game currency you want!</a>
             </div>
-            <div class = "column">
-                <div class="bag" title="Bag"></div>
+            <div class="column">
+                <div class="bag"></div>
                 <h1>Get rewarded instantly</h1>
                 <a>Rewards are given instantly, so there's no long wait for your hard earned rewards.</a>
             </div>
