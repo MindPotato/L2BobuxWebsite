@@ -8,7 +8,7 @@ Date published  :     June 4th 2021
 Colours
 #01AE07 - Dark green
 #068D0B - Darkest green
-#12D619 - Brigtish green
+#12D619 - Bright-ish green
 #23EB2A - Bright green
 #484848 - Dark gray
 */
@@ -42,7 +42,7 @@ Colours
 ::selection {
     /*When the user highlights something on the website, these colours will be used - purely aesthetic*/
     color: white;
-    background: #068D0B;
+    background: #005103;
 }
 
 ::-webkit-scrollbar {
@@ -68,16 +68,25 @@ Colours
     background: #068D0B;
 }
 
-body {
-    /*Changes everything in <body> aka everything seen on the website*/
-    width: inherit;
-    /*Takes the width of the end-users screen width*/
+* {
+    /*Changes everything on the website*/
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /*Sets a default font*/
+    /*give everything this font*/
     color: #484848;
-    /*Sets a default font colour*/
+    /*give all text this color*/
+    transition: .1s ease-in-out;
+    /*gives everything a transition*/
+}
+
+body {
+    /*Changes everything in <body>*/
+    width: 100%;
+    /*Takes the width of the end-users screen width*/
     background-color: #FFFFFF;
-    /*Sets a default background colour*/
+    /*Sets a for background for certain browser themes*/
+    margin: 0;
+    padding: 0;
+    /*Sometimes browsers give body a default padding or margin, these override those default settings*/
 }
 
 .animation,
@@ -210,11 +219,11 @@ body {
 .nav-signup:hover,
 .nav-signup:active {
     /*When the signup button is hovered*/
-    color: #FFFFFF;
+    color: #FFF;
     /*Change font color*/
     background-image: linear-gradient(45deg, #12D619, #23EB2A);
     /*Gives it a gradient background on hover*/
-    border: white 2px solid;
+    border: #12D619 2px solid;
     /*Gets rid of the border*/
 }
 
@@ -299,6 +308,7 @@ body {
     .nav-logo {
         background-image: url(/rawimages/bobuxlogo.svg);
         width: 60px;
+        transition: 0s;
     }
 }
 
@@ -394,6 +404,11 @@ body {
     }
 }
 
+.center {
+    margin: auto;
+    text-align: center;
+}
+
 .heroimage {
     /*Properties for the hero image. Percentage and VW is used to make sure it adapts well with smaller/larger screen - no time to do proper JS.*/
     margin: 7% auto auto auto;
@@ -457,6 +472,7 @@ body {
 @media only screen and (max-width: 800px) {
     .subheading {
         font-size: 20px;
+        width: 100%;
     }
 }
 
@@ -477,7 +493,12 @@ body {
 
 .homecontent {
     overflow: hidden;
-    padding-top: 4%;
+    padding: 4%;
+}
+
+.hdiw {
+    overflow: hidden;
+    padding: 4% 0 0 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0), #01ae0727);
 }
 
@@ -488,6 +509,8 @@ body {
 
 .row {
     display: flex;
+    justify-content: center;
+    margin: auto;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -506,7 +529,7 @@ body {
     margin: 2.1vw;
     padding: 2.1vw;
     text-align: center;
-    height: fit-content;
+    min-height: fit-content;
     transition: 300ms ease-in-out;
     height: 440px;
 }
@@ -516,11 +539,16 @@ body {
     box-shadow: #48484850 0 0 20px;
 }
 
+@media only screen and (max-width: 1300px) {
+    .column {
+        height: fit-content;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .column {
         margin: 2.1vw auto;
         width: 90%;
-        height: 450px;
     }
 }
 
@@ -553,4 +581,253 @@ body {
 
 .bag {
     background-image: url(/rawimages/MONEYBAH.svg);
+}
+
+.contrast {
+    background-color: #068D0B;
+    position: relative;
+    height: fit-content;
+    z-index: 0;
+}
+
+.contrast .header {
+    color: white;
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+
+.contrast .header span {
+    color: #12D619;
+}
+
+.contrast p {
+    color: white;
+    float: left;
+    width: 50%;
+    font-size: 15pt;
+}
+
+.rocket {
+    margin: auto;
+    float: right;
+    width: 420px;
+    height: 420px;
+    right: 12vw;
+    top: 0;
+    position: absolute;
+    background-image: url(/rawimages/rocket.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 1200px) {
+    .contrast {
+        padding: 2% 2%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .rocket {
+        height: 100%;
+        right: 40px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .contrast .header {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .contrast p {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .rocket {
+        position: absolute;
+        display: block;
+        float: none;
+        width: 100vw;
+        top: 0;
+        right: 0;
+        opacity: 0.3;
+    }
+}
+
+.news {
+    background-color: #E2E2E2;
+}
+
+.news-img1,
+.news-img2,
+.news-img3 {
+    height: 220px;
+    width: 100%;
+    background-image: url(/rawimages/Component\ 1\ –\ 1.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.article {
+    height: 360px;
+}
+
+.article:hover {
+    background-color: transparent;
+}
+
+@media only screen and (max-width: 1000px) {
+    .article {
+        margin: 2.1vw auto;
+        width: 90%;
+    }
+}
+
+.article h1 {
+    font-size: 25pt;
+    font-weight: bold;
+    color: #01AE07;
+}
+
+.readmore {
+    width: fit-content;
+    text-align: center;
+    border: #12D619 1px solid;
+    padding: 4px 50px;
+    background-image: linear-gradient(transparent, #A7E9A923 70%, #4ED25246);
+    background-position: bottom;
+    color: #12D619;
+    font-size: 15pt;
+    text-decoration: none;
+}
+
+.readmore:hover {
+    background-image: linear-gradient(transparent, #A7E9A923 10%, #4ED25246);
+}
+
+.newslet {
+    position: relative;
+    top: 10px;
+    margin: auto;
+    text-align: center;
+}
+
+.newslet a {
+    color: #0088FF;
+    text-decoration: none;
+}
+
+.newslet a:hover {
+    color: #00aaff;
+}
+
+footer {
+    overflow: hidden;
+    min-height: 150px;
+    background-color: #2E2D2D;
+    padding: 3% 5% 0 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width: 1000px) {
+    footer {
+        flex-direction: column;
+    }
+}
+
+footer h1 {
+    color: white;
+    font-size: 12pt;
+}
+
+.bobuxwhiteflat a {
+    width: 100%;
+    height: 50px;
+    display: block;
+    margin: 10px 0;
+    background-image: url(/rawimages/bobuxtext-whiteflat.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footertext,
+.footertext a,
+.footercontact,
+.footercontact a,
+.socialbuttons,
+.socialbuttons a,
+.socialbuttons p {
+    font-size: 11pt;
+    color: white;
+    text-decoration: none;
+}
+
+.socialbuttons {
+    text-align: center;
+    width: 25%;
+    margin-right: 10px;
+}
+
+.socialbuttons a {
+    font-size: 25px;
+}
+
+.fa-twitter,
+.fa-instagram,
+.fa-discord,
+.fa-linkedin-in {
+    display: inline-block;
+    width: 20%;
+    height: 25px;
+}
+
+.socialbuttons a:hover {
+    color: #484848;
+}
+
+.footercontact {
+    width: 22%;
+}
+
+.footercontact a {
+    display: block;
+    margin: 5px 0;
+}
+
+.footercontact a:hover {
+    color: #484848;
+}
+
+@media only screen and (max-width: 1000px) {
+    .footertext,
+    .footercontact {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .socialbuttons {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .socialbuttons {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
 }
