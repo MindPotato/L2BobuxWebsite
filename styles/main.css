@@ -174,7 +174,6 @@ body {
     /*Making sure theres no text in the block*/
     display: block;
     height: 2px;
-    width: 100%;
     background-color: transparent;
     /*Making the background transparent so it "fades in"*/
     width: 0;
@@ -228,7 +227,7 @@ body {
 }
 
 #dd {
-    position: absolute;
+    /*Looks for 'id="dd"' in HTML and not 'class="dd"'*/
     display: unset;
     width: fit-content;
     overflow: hidden;
@@ -250,6 +249,7 @@ body {
 }
 
 .mobile #ddcontent {
+    /*Changes ID's with the class mobile*/
     left: 0;
     opacity: 1;
     visibility: visible;
@@ -292,7 +292,6 @@ body {
     content: "";
     display: block;
     height: 2px;
-    width: 100%;
     background-color: transparent;
     width: 0;
     transition: ease-in-out 300ms;
@@ -302,14 +301,6 @@ body {
 #ddcontent a:active::after {
     width: 100%;
     background-color: #FFF;
-}
-
-@media only screen and (max-width: 1200px) {
-    .nav-logo {
-        background-image: url(/rawimages/bobuxlogo.svg);
-        width: 60px;
-        transition: 0s;
-    }
 }
 
 
@@ -338,6 +329,7 @@ body {
 }
 
 #icon span:nth-child(1) {
+    /*:nth:child(x) targets number x <span> child of 'id="icon"', in this case x = 1*/
     top: 0px;
 }
 
@@ -363,46 +355,8 @@ body {
     transform: rotate(-45deg);
 }
 
-@media only screen and (max-width: 800px) {
-    #icon {
-        position: relative;
-        display: inline-block;
-        bottom: 18px;
-        right: 20px;
-    }
-}
-
 
 /*End of burger*/
-
-@media only screen and (max-width: 1200px) {
-    .navbars {
-        margin: 40px;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .navbars {
-        margin: 0px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .nav-button {
-        color: transparent;
-        display: non;
-        margin: 0%;
-        font-size: 0%;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .nav-signup {
-        position: relative;
-        top: 12px;
-        font-size: 20px;
-    }
-}
 
 .center {
     margin: auto;
@@ -463,34 +417,6 @@ body {
     margin: 2% auto;
 }
 
-@media only screen and (max-width: 1200px) {
-    .homehero .header {
-        font-size: 60px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .subheading {
-        font-size: 20px;
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .homehero {
-        width: 80%;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .heroimage {
-        height: fit-content;
-        padding-bottom: 20px;
-        background-size: 1500px;
-        background-position: bottom right;
-    }
-}
-
 .homecontent {
     overflow: hidden;
     padding: 4%;
@@ -513,12 +439,6 @@ body {
     margin: auto;
 }
 
-@media only screen and (max-width: 1000px) {
-    .row {
-        display: table;
-    }
-}
-
 .row:after {
     display: table;
     clear: both;
@@ -537,19 +457,6 @@ body {
 .column:hover {
     background-color: #f5fff5;
     box-shadow: #48484850 0 0 20px;
-}
-
-@media only screen and (max-width: 1300px) {
-    .column {
-        height: fit-content;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .column {
-        margin: 2.1vw auto;
-        width: 90%;
-    }
 }
 
 .column h1 {
@@ -623,43 +530,6 @@ body {
     z-index: -1;
 }
 
-@media only screen and (max-width: 1200px) {
-    .contrast {
-        padding: 2% 2%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .rocket {
-        height: 100%;
-        right: 40px;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .contrast .header {
-        text-align: center;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .contrast p {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .rocket {
-        position: absolute;
-        display: block;
-        float: none;
-        width: 100vw;
-        top: 0;
-        right: 0;
-        opacity: 0.3;
-    }
-}
-
 .news {
     background-color: #E2E2E2;
 }
@@ -681,13 +551,6 @@ body {
 
 .article:hover {
     background-color: transparent;
-}
-
-@media only screen and (max-width: 1000px) {
-    .article {
-        margin: 2.1vw auto;
-        width: 90%;
-    }
 }
 
 .article h1 {
@@ -736,12 +599,6 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-@media only screen and (max-width: 1000px) {
-    footer {
-        flex-direction: column;
-    }
 }
 
 footer h1 {
@@ -805,6 +662,152 @@ footer h1 {
 
 .footercontact a:hover {
     color: #484848;
+}
+
+
+/*Media queries*/
+
+@media only screen and (max-width: 1200px) {
+    .nav-logo {
+        background-image: url(/rawimages/bobuxlogo.svg);
+        width: 60px;
+        transition: 0s;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #icon {
+        position: relative;
+        display: inline-block;
+        bottom: 18px;
+        right: 20px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbars {
+        margin: 40px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbars {
+        margin: 0px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .nav-button {
+        color: transparent;
+        display: non;
+        margin: 0%;
+        font-size: 0%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav-signup {
+        position: relative;
+        top: 12px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .homehero .header {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .subheading {
+        font-size: 20px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .homehero {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .heroimage {
+        height: fit-content;
+        padding-bottom: 20px;
+        background-size: 1500px;
+        background-position: bottom right;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .row {
+        display: table;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .column {
+        height: fit-content;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .column {
+        margin: 2.1vw auto;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .contrast {
+        padding: 2% 2%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .rocket {
+        height: 100%;
+        right: 40px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .contrast .header {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .contrast p {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .rocket {
+        position: absolute;
+        display: block;
+        float: none;
+        width: 100vw;
+        top: 0;
+        right: 0;
+        opacity: 0.3;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .article {
+        margin: 2.1vw auto;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    footer {
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
