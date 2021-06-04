@@ -137,7 +137,7 @@ body {
     /*Makes it possbile for HTML attributes to be side by side*/
     margin: auto 30px auto auto;
     /*Makes sure anything to the right is pushed 30px*/
-    background-image: url(/rawimages/bobuxtext.svg);
+    background-image: url(/imgs/bobuxtext.svg);
     /*Easy method to get images in a navbar without using <img> and have it be clickable*/
     background-size: contain;
     /*The background image will fill the space*/
@@ -272,7 +272,7 @@ body {
 }
 
 .mobile .nav-logo {
-    background-image: url(/rawimages/bobuxlogo-whiteflat.svg);
+    background-image: url(/imgs/bobuxlogo-whiteflat.svg);
     position: relative;
 }
 
@@ -372,7 +372,7 @@ body {
     /*Inherits the width from the parent (takes the width from body)*/
     padding-bottom: 6%;
     border-bottom: #01AE07 solid 4px;
-    background-image: url(/rawimages/graph2.svg);
+    background-image: url(/imgs/graph2.svg);
     background-size: 1800px;
     background-position: bottom right;
     /*Keeps the background to the right*/
@@ -484,15 +484,15 @@ body {
 }
 
 .pickaxe {
-    background-image: url(/rawimages/pickaxeorsurvey.svg);
+    background-image: url(/imgs/pickaxeorsurvey.svg);
 }
 
 .coin {
-    background-image: url(/rawimages/coin.svg);
+    background-image: url(/imgs/coin.svg);
 }
 
 .bag {
-    background-image: url(/rawimages/MONEYBAH.svg);
+    background-image: url(/imgs/MONEYBAH.svg);
 }
 
 .contrast {
@@ -528,7 +528,7 @@ body {
     right: 12vw;
     top: 0;
     position: absolute;
-    background-image: url(/rawimages/rocket.svg);
+    background-image: url(/imgs/rocket.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -544,7 +544,7 @@ body {
 .news-img3 {
     height: 220px;
     width: 100%;
-    background-image: url(/rawimages/Component\ 1\ –\ 1.svg);
+    background-image: url(/imgs/Component\ 1\ –\ 1.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -616,7 +616,7 @@ footer h1 {
     height: 50px;
     display: block;
     margin: 10px 0;
-    background-image: url(/rawimages/bobuxtext-whiteflat.svg);
+    background-image: url(/imgs/bobuxtext-whiteflat.svg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -681,7 +681,7 @@ footer h1 {
 
 @media only screen and (max-width: 1200px) {
     .nav-logo {
-        background-image: url(/rawimages/bobuxlogo.svg);
+        background-image: url(/imgs/bobuxlogo.svg);
         width: 60px;
         transition: 0s;
     }
