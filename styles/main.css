@@ -1,5 +1,5 @@
 /*
-Authour         :     Ivan Koundratas
+Author         :     Ivan Koundratas
 Date published  :     June 4th 2021
 */
 
@@ -664,6 +664,7 @@ footer h1 {
 
 .footercontact {
     width: 22%;
+    margin-left: 2%;
 }
 
 .footercontact a {
