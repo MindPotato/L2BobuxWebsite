@@ -43,6 +43,7 @@ Colours
     /*When the user highlights something on the website, these colours will be used - purely aesthetic*/
     color: white;
     background: #005103;
+    -webkit-text-fill-color: white;
 }
 
 ::-webkit-scrollbar {
@@ -369,7 +370,7 @@ body {
     /*You could read this as, margin: Top Right Bottom Left or North East South West*/
     width: inherit;
     /*Inherits the width from the parent (takes the width from body)*/
-    height: 71%;
+    padding-bottom: 6%;
     border-bottom: #01AE07 solid 4px;
     background-image: url(/rawimages/graph2.svg);
     background-size: 1800px;
@@ -399,7 +400,9 @@ body {
 }
 
 .header span {
-    color: #01AE07;
+    background: -webkit-linear-gradient(45deg, #01AE07, #23EB2A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .subheading {
@@ -450,13 +453,15 @@ body {
     padding: 2.1vw;
     text-align: center;
     min-height: fit-content;
-    transition: 300ms ease-in-out;
+    transition: .3s ease-in-out;
+    position: relative;
     height: 440px;
 }
 
 .column:hover {
     background-color: #f5fff5;
     box-shadow: #48484850 0 0 20px;
+    transform: translateY(-10px);
 }
 
 .column h1 {
@@ -647,7 +652,13 @@ footer h1 {
     height: 25px;
 }
 
-.socialbuttons a:hover {
+.socialbuttons a:hover,
+.socialbuttons a:active {
+    color: #484848;
+}
+
+.footertext a:hover,
+.footertext a:active {
     color: #484848;
 }
 
@@ -660,7 +671,8 @@ footer h1 {
     margin: 5px 0;
 }
 
-.footercontact a:hover {
+.footercontact a:hover,
+.footercontact a:active {
     color: #484848;
 }
 
@@ -699,7 +711,7 @@ footer h1 {
 @media only screen and (max-width: 800px) {
     .nav-button {
         color: transparent;
-        display: non;
+        display: none;
         margin: 0%;
         font-size: 0%;
     }
